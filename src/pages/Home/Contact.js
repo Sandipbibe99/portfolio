@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import SectionTitle from '../../components/SectionTitle'
 
 const Contact = () => {
@@ -13,7 +13,7 @@ const Contact = () => {
 
     }
 
-    const [data, setData] = useState(JSON.stringify(developer))
+    
 
     return (
         <div>

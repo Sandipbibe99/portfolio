@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SectionTitle from '../../components/SectionTitle'
-import { experiences } from '../../resources/experiences'
 import { projects } from '../../resources/projects'
 
 const Projects = () => {
@@ -19,7 +18,7 @@ const Projects = () => {
 
                 ))}
             </div>
-            <img src={projects[activeItem].image} className='h-60 w-72'></img>
+            <img src={projects[activeItem].image} alt='hi' className='h-60 w-72'></img>
             <div className='flex flex-col gap-5'>
               <h1 className='text-secondary text-xl'>{projects[activeItem].title}</h1>
               <h1 className='text-tertiary text-xl'>{projects[activeItem].technologies}</h1>
