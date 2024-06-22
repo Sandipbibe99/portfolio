@@ -1,0 +1,31 @@
+nav ul li{
+    display: inline-block;
+    margin: 10px 20px; 
+    list-style: none;
+}
+nav ul li a{
+   color: #fff;
+   font-size: 18px;
+   position: relative;
+}
+
+nav ul li a::after{
+    width: 0;
+    height: 3px;
+    content: '';
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+ }
+
+ nav ul li a:hover::after{
+    width: 100%;
+    
+ }
+ input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
