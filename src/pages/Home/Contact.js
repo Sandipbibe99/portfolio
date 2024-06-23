@@ -28,14 +28,20 @@ const Contact = () => {
         setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
     };
 
-
+  const [toast , setToast] = useState(false)
+  const [toastMessage , setToastMessage] = useState(false)
 
  const handlesubmit = async(e) => {
     e.preventDefault()
      console.log(formData)
-    await axios.post("http://localhost:9000/api/add" , formData)
+    await axios.post("https://port-backend-s9qj.onrender.com/api/add" , formData)
     .then((response) => {
         console.log(response.data.msg)
+        setToastMessage(response.data.msg)
+        setToast(true)
+        setTimeout(() => {
+            setToast(false)
+        }, 5000 );
     })
     .catch((error) => {
         console.log(error)
@@ -72,6 +78,25 @@ const Contact = () => {
 
             
                 </div>
+                
+
+{ toast && <div id="toast-message-cta" class="w-full fixed top-2 right-1 max-w-xs p-4  text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+    <div class="flex">
+        <img class="w-8 h-8 rounded-full" src="/sandyy.jpg" alt="Jese Leos image"/>
+        <div class="ms-3 text-sm font-normal">
+          
+            <div class="mb-2  text-sm font-medium">{toastMessage}</div> 
+         
+        </div>
+        <button onClick={() => setToast(false)} type="button" class="ms-auto -mx-1.5 -my-1.5 bg-white justify-center items-center flex-shrink-0 text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta" aria-label="Close">
+            <span class="sr-only">Close</span>
+            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+            </svg>
+        </button>
+    </div>
+</div>}
+
             </div>
         </div>
     )
