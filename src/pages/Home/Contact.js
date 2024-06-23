@@ -39,6 +39,13 @@ const Contact = () => {
         console.log(response.data.msg)
         setToastMessage(response.data.msg)
         setToast(true)
+
+        setFormData({
+            name : '',
+            contact : '',
+            email : '',
+            message : ''
+        })
         setTimeout(() => {
             setToast(false)
         }, 5000 );
@@ -69,10 +76,10 @@ const Contact = () => {
                 </div>
                 <div className='h-[400px] flex flex-col items-center gap-7 mt-10'>
 
-                    <input onChange={handleInputchange} name='name'  type='text' placeholder='Name' className='w-[500px] sm:w-[270px] py-1 text-white px-3 outline-none rounded bg-[#262626]'></input>
-                    <input onChange={handleInputchange} name='contact'   type='number' placeholder='Contact' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
-                    <input onChange={handleInputchange} name='email'   type='text' placeholder='E mail' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
-                    <textarea onChange={handleInputchange} name='message'   placeholder='message' className='w-[500px] sm:w-[270px] h-32 sm:h-20 py-1 text-white px-3 outline-none rounded bg-[#262626]'></textarea>
+                    <input onChange={handleInputchange} value={formData.name} name='name'  type='text' placeholder='Name' className='w-[500px] sm:w-[270px] py-1 text-white px-3 outline-none rounded bg-[#262626]'></input>
+                    <input onChange={handleInputchange} value={formData.contact} name='contact'   type='number' placeholder='Contact' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
+                    <input onChange={handleInputchange} value={formData.email} name='email'   type='text' placeholder='E mail' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
+                    <textarea onChange={handleInputchange} value={formData.message} name='message'   placeholder='message' className='w-[500px] sm:w-[270px] h-32 sm:h-20 py-1 text-white px-3 outline-none rounded bg-[#262626]'></textarea>
 
                     <button onClick={handlesubmit} class="inline-flex items-center ml-auto sm:ml-0  justify-center mt-4 w-40 px-4 py-2 mb-2 text-MD text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" >Submit</button>
 
