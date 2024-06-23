@@ -33,7 +33,7 @@ const Contact = () => {
  const handlesubmit = async(e) => {
     e.preventDefault()
      console.log(formData)
-    await axios.post("https://port-backend-s9qj.onrender.com/api/add" , formData)
+    await axios.post("http://localhost:9000/api/add" , formData)
     .then((response) => {
         console.log(response.data.msg)
     })
