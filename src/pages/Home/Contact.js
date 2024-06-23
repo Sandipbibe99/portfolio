@@ -89,7 +89,7 @@ const Contact = () => {
 
 { toast && <div id="toast-message-cta" class="w-full fixed top-2 right-1 max-w-xs p-4  text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
     <div class="flex">
-        <img class="w-8 h-8 rounded-full" src="/sandyy.jpg" alt="Jese Leos image"/>
+        <img class="w-8 h-8 rounded-full" src="/sandyy.jpg" alt="sandip"/>
         <div class="ms-3 text-sm font-normal">
           
             <div class="mb-2  text-sm font-medium">{toastMessage}</div> 
