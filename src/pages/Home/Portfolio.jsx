@@ -11,8 +11,9 @@ import Leftsider from './Leftsider'
 const Portfolio = () => {
   return (
     <div >
-         <Header />
+         
          <div className='bg-primary px-40 sm:px-5'>
+         <Header />
            <Intro />
            <About />
            <Experiences />

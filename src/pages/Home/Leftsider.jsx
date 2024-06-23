@@ -12,7 +12,7 @@ const Leftsider = () => {
                    {/* <a href='https://www.facebook.com/share/bYmZn5fHAuc3aMyz/?mibextid=qi2Omg' target='_blank'>  <i class="ri-github-fill text-gray-400 text-xl "></i> </a> */}
 
                 </div>
-                <div className='w-[1px] h-32 bg-[#1a5599]'></div>
+                <div  className='w-[1px] block sm:none h-32 bg-[#1a5599]'></div>
             </div>
         </div>
     )

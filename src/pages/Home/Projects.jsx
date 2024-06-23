@@ -9,7 +9,7 @@ const Projects = () => {
         <SectionTitle title='Projects' id="projects"/>
 
         
-        <div className='flex py-10 gap-20 sm:flex-col'>
+        <div className='flex py-10 gap-20 sm:flex-col items-center'>
             <div className='flex flex-col gap-10 border-l-2 border-[#3a7c4c] w-1/3 sm:flex-row sm:overflow-x-scroll sm:w-full'>
                 {projects.map((project , index) => (
                  <div onClick={() => setActiveItem(index)} className='cursor-pointer'>
