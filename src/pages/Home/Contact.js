@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import SectionTitle from '../../components/SectionTitle'
+import axios from 'axios'
 
 const Contact = () => {
 
@@ -13,6 +14,33 @@ const Contact = () => {
 
     }
 
+    const user = {
+        name : '',
+        contact : '',
+        email : '',
+        message : ''
+    }
+
+    const [formData , setFormData] = useState(user)
+
+    const handleInputchange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
+    };
+
+
+
+ const handlesubmit = async(e) => {
+    e.preventDefault()
+     console.log(formData)
+    await axios.post("http://localhost:9000/api/add" , formData)
+    .then((response) => {
+        console.log(response.data.msg)
+    })
+    .catch((error) => {
+        console.log(error)
+    })
+ }
     
 
     return (
@@ -35,19 +63,14 @@ const Contact = () => {
                 </div>
                 <div className='h-[400px] flex flex-col items-center gap-7 mt-10'>
 
-                    <input type='text' placeholder='Name' className='w-[500px] sm:w-[270px] py-1 text-white px-3 outline-none rounded bg-[#262626]'></input>
-                    <input type='number' placeholder='Contact' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
-                    <textarea placeholder='message' className='w-[500px] sm:w-[270px] h-32 sm:h-20 py-1 text-white px-3 outline-none rounded bg-[#262626]'></textarea>
+                    <input onChange={handleInputchange} name='name'  type='text' placeholder='Name' className='w-[500px] sm:w-[270px] py-1 text-white px-3 outline-none rounded bg-[#262626]'></input>
+                    <input onChange={handleInputchange} name='contact'   type='number' placeholder='Contact' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
+                    <input onChange={handleInputchange} name='email'   type='text' placeholder='E mail' className='w-[500px] sm:w-[270px] text-white py-1 px-3 outline-none rounded bg-[#262626]'></input>
+                    <textarea onChange={handleInputchange} name='message'   placeholder='message' className='w-[500px] sm:w-[270px] h-32 sm:h-20 py-1 text-white px-3 outline-none rounded bg-[#262626]'></textarea>
 
-                    <button class="inline-flex items-center ml-auto sm:ml-0  justify-center mt-4 w-40 px-4 py-2 mb-2 text-MD text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" >Submit</button>
+                    <button onClick={handlesubmit} class="inline-flex items-center ml-auto sm:ml-0  justify-center mt-4 w-40 px-4 py-2 mb-2 text-MD text-white bg-green-500 rounded-md hover:bg-green-400 sm:w-auto sm:mb-0" >Submit</button>
 
-                    {/* <lottie-player
-            src="https://assets9.lottiefiles.com/packages/lf20_eroqjb7w.json"
-            background="transparent"
-            speed="1" 
-            autoplay
-            >
-            </lottie-player> */}
+            
                 </div>
             </div>
         </div>
